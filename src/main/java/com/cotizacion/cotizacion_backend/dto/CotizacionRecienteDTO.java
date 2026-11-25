@@ -16,4 +16,5 @@ public class CotizacionRecienteDTO {
     private Double total;
     private Double precioSugerido;
     private String versionModelo;
+    private String motivo;
 }

@@ -1,17 +1,21 @@
 package com.cotizacion.cotizacion_backend.dto;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
+
 import java.math.BigDecimal;
 
 @Data
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public class PrediccionResponseDTO {
 
     @JsonProperty("costo_fabricacion_unitario")
     private BigDecimal costoFabricacionUnitario;
-
-    @JsonProperty("mape_esperado_pct")
-    private BigDecimal mapeEsperadoPct;
 
     @JsonProperty("mape_mediana_pct")
     private BigDecimal mapeMedianaPct;
@@ -27,4 +31,10 @@ public class PrediccionResponseDTO {
 
     @JsonProperty("confianza_r2")
     private BigDecimal confianzaR2;
+
+    @JsonProperty("mape_esperado_pct")
+    private BigDecimal mapeEsperadoPct;
+
+    private Integer cantidadcasillero;
+
 }

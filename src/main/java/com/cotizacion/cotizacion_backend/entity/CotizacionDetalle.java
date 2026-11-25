@@ -54,7 +54,7 @@ public class CotizacionDetalle {
 
     // --- CARACTERÍSTICAS DEL MUEBLE ---
 
-    @Column(name = "familia_producto", length = 50)
+    @Column(name = "familia_producto", length = 100)
     private String familia_producto;
 
     @Column(name = "cantidad")
@@ -72,6 +72,10 @@ public class CotizacionDetalle {
     @Column(name = "cantidad_puertas")
     private Integer cantidadPuertas;
 
+    @Column(name = "cantidad_casilleros")
+    private Integer cantidadCasilleros;
+
+
     @Column(name = "cantidad_bandejas")
     private Integer cantidadBandejas;
 
@@ -80,11 +84,14 @@ public class CotizacionDetalle {
 
     // --- RESULTADOS DEL MACHINE LEARNING Y MARKUP ---
 
-    @Column(name = "costo_fabricacion", precision = 12, scale = 2)
+    @Column(name = "costo_fabricacion", precision = 12, scale = 0)
     private BigDecimal costoFabricacion;
 
     @Column(name = "confianza_ml", precision = 5, scale = 2)
     private BigDecimal confianzaMl;
+
+    @Column(name = "error_promedio_mape")
+    private BigDecimal errorPromedioMape;
 
     @Column(name = "version_modelo_ml", length = 30)
     private String versionModeloMl;
@@ -92,7 +99,7 @@ public class CotizacionDetalle {
     @Column(name = "markup_aplicado", precision = 4, scale = 2)
     private BigDecimal markupAplicado;
 
-    @Column(name = "precio_venta_sugerido", precision = 12, scale = 2)
+    @Column(name = "precio_venta_sugerido", precision = 12, scale = 0)
     private BigDecimal precioVentaSugerido;
 
     @Column(name = "aplica_descuento")

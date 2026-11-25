@@ -35,11 +35,12 @@ public class CotizacionDetalleDTO {
     private Integer cantidadBandejas;
     private Boolean techoInclinado;
     private String codiFamilia;
-
+    private Integer cantidadCasilleros;
     // Finanzas (ML)
     private BigDecimal costoFabricacion;
     private BigDecimal markupAplicado;
     private BigDecimal confianzaMl;
     private BigDecimal precioVentaSugerido;
-    //private BigDecimal montoTotal;
+    private BigDecimal errorPromedioMape;
+
 }

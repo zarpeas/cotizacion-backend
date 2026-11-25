@@ -6,6 +6,9 @@ import com.cotizacion.cotizacion_backend.entity.Usuario;
 import com.cotizacion.cotizacion_backend.repository.UsuarioRepository;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+import java.time.LocalDateTime;
 
 @Service
 public class AuthService {
@@ -18,6 +21,7 @@ public class AuthService {
         this.usuarioRepository = usuarioRepository;
     }
 
+    @Transactional
     public LoginResponse login(LoginRequest request) {
 
         Usuario usuario = usuarioRepository
@@ -35,6 +39,10 @@ public class AuthService {
 
             throw new RuntimeException("Usuario o contraseña incorrectos");
         }
+
+
+        usuario.setFecha_entrada(LocalDateTime.now());
+        usuarioRepository.save(usuario);
 
         return new LoginResponse(
                 usuario.getIdUsuario(),

@@ -14,4 +14,6 @@ public class CotizacionResponseDTO {
     private Boolean aplicaDescuento;
     private BigDecimal descuentoSugeridoMin;
     private BigDecimal descuentoSugeridoMax;
+    private BigDecimal mapeEsperadoPct;
+    private BigDecimal mapeMedianaPct;
 }

@@ -7,6 +7,8 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.sql.Date;
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Data
@@ -25,14 +27,12 @@ public class Usuario {
     @Column(name = "username", nullable = false, unique = true, length = 50)
     private String username;
 
-    // CAMBIADO para que coincida con tu AuthService
     @Column(name = "password_hash", nullable = false)
     private String passwordHash;
 
     @Column(name = "nombres", nullable = false, length = 100)
     private String nombres;
 
-    // AGREGADO para que coincida con tu AuthService
     @Column(name = "apellidos", length = 100)
     private String apellidos;
 
@@ -44,6 +44,12 @@ public class Usuario {
 
     @Column(name = "estado")
     private Boolean estado;
+
+    @Column(name = "fecha_creacion")
+    private LocalDateTime fecha_creacion;
+
+    @Column(name = "fecha_entrada")
+    private LocalDateTime fecha_entrada;
 
     @JsonIgnore
     @OneToMany(mappedBy = "usuario", fetch = FetchType.LAZY)

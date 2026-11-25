@@ -3,6 +3,8 @@ package com.cotizacion.cotizacion_backend.dto;
 import jakarta.validation.constraints.NotNull;
 import lombok.Data;
 
+import java.math.BigDecimal;
+
 @Data
 public class MuebleInputDTO {
 
@@ -18,10 +20,15 @@ public class MuebleInputDTO {
     @NotNull private Double ancho;
     @NotNull private Double fondo;
 
+    // Valores ya calculados y mostrados en el frontend; se guardan tal cual al confirmar.
+    private BigDecimal costoFabricacionUnitario;
+    private BigDecimal precioVentaSugerido;
+
     // Cantidades y Características
     private Integer cantidad;
     private Integer cantidadPuertas;
     private Integer cantidadBandejas;
+    private Integer cantidadCasilleros;
     private Boolean techoInclinado;
 
     // Datos extra para el ML

@@ -50,7 +50,7 @@ public class ClienteService {
         }
         if (req.getRut() != null && !req.getRut().isBlank()
                 && clienteRepository.existsByRut(req.getRut())) {
-            throw new RuntimeException("Ya existe un cliente con ese documento");
+            throw new RuntimeException("Ya existe un cliente con ese documento RUT");
         }
 
         Cliente c = new Cliente();
@@ -72,7 +72,7 @@ public class ClienteService {
 
         if (req.getRut() != null && !req.getRut().isBlank()
                 && clienteRepository.existsByRutAndIdClienteNot(req.getRut(), id)) {
-            throw new RuntimeException("Ya existe otro cliente con ese documento");
+            throw new RuntimeException("Ya existe otro cliente con ese documento RUT");
         }
 
         c.setRazonSocial(req.getRazonSocial());

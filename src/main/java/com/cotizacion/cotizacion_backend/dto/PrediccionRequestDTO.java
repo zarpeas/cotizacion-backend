@@ -1,11 +1,15 @@
 package com.cotizacion.cotizacion_backend.dto;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Builder;
 import lombok.Data;
 
+import java.math.BigDecimal;
+
 @Data
 @Builder
+@JsonInclude(JsonInclude.Include.ALWAYS)
 public class PrediccionRequestDTO {
 
     private String familia;
@@ -34,4 +38,8 @@ public class PrediccionRequestDTO {
 
     @JsonProperty("producto_txt")
     private String productoTxt;
+
+    private BigDecimal errorPromedioMape;
+    @JsonProperty("n_cuerpos")
+    private Integer nCuerpos;
 }

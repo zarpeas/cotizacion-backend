@@ -14,7 +14,6 @@ import java.util.Map;
 
 @RestController
 @RequestMapping("/api/cotizacion")
-@CrossOrigin(origins = "http://localhost:4200")
 public class CotizacionController {
 
     @Autowired
@@ -76,6 +75,13 @@ public class CotizacionController {
 
         cotizacionService.cancelarCotizacion(id, motivo);
         return ResponseEntity.ok().build();
+    }
+
+    @PatchMapping("/{id}/reestimar")
+    public ResponseEntity<CotizacionDetalleDTO> reestimarCotizacion(
+            @PathVariable Integer id,
+            @Valid @RequestBody CotizacionReestimacionDTO input) {
+        return ResponseEntity.ok(cotizacionService.reestimarCotizacion(id, input));
     }
 
     @PatchMapping("/{id}/aceptar")
